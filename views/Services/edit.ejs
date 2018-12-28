@@ -1,0 +1,42 @@
+<% include ../partials/header %>
+<%  if(currentUser!=null&&currentUser.isAdmin){ %>  
+    <a href="/adminpanel">Go to admin panel</a>
+    <%  } else{ %>
+   
+<div class="body">
+        <div class="container">
+            <div class="signup">
+    
+
+                
+                <form action="/Services/<%= Service._id %>?_method=PUT" method="POST">
+                    <h2>Edit <%= Service.name %></h2>
+                <div class="form">
+                    <input class="input" type="text" name="Service[name]" value="<%= Service.name %>"  required>
+                </div>
+                <div class="form">
+                        <input class="input" type="text" name="Service[category]" value="<%= Service.category %>" required>
+                </div>
+                
+                <div class="form">
+                    <input class="input" type="text" name="Service[description]" value="<%= Service.description %>" required>
+                </div>
+
+                <div class="form">
+                    <input class="input" type="text" name="Service[price]" value="<%= Service.price %>" required>
+                </div>
+
+                <div class="form">
+                        <input class="input" type="text" name="Service[address]" value="<%= Service.author.address %>" required>
+                    </div>
+                <div class="form">
+                        <input type="submit" id="submit" class="submit" value="Submit"/>
+                </div>
+            </form>
+            <a href="/Services/<%= Service._id %>">Go Back</a>
+        </div>
+    </div>
+</div>
+<% } %>
+<% include ../partials/footer %>
+

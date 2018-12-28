@@ -1,0 +1,25 @@
+<% include ./partials/header %>
+
+<% if(currentUser){%>
+    <a href="/Items">Go back</a>
+    <% } else {%>
+<div class="body">
+    <div class="container">
+        <div class="signup">       
+            <form method="POST" action="/login" >
+                <h2>Login</h2>
+                <div class="form">
+                    <input type="text"  class="input" name="username" id="email" placeholder="Username" required/>
+                </div>
+                <div class="form">
+                    <input type="password" class="input" name="password" id="password" placeholder="Password" required/>
+                </div>
+                <div class="form">
+                    <input type="submit" id="submit" class="submit" value="Log in"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div> 
+<% } %>
+<% include ./partials/footer %> 

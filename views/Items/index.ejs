@@ -1,0 +1,183 @@
+<% include ../partials/header %> 
+<%  if(currentUser!=null&&currentUser.isAdmin){ %>  
+    <a href="/adminpanel">Go to admin panel</a>
+    <%  } else{ %>
+   
+        <div class="flex">
+            <div class="signup-h">
+
+                <div>
+                    <h1 id="asddsa">Welcome To JNJ!</h1>
+                </div>  
+                <div >
+                    <p>               
+                        <form action="/Items" method="GET" >
+                            <div class="form-group">
+                                <input type="text" name="search" placeholder="Enter name or category" class="input-h">
+                                
+                                <input type="submit" value="Search" class="submit-h">
+                            </div>
+                        </form>
+                    </p>
+                    
+                </div>
+                <div class="item-add">
+                    <a class="submit-h" id="asd1" href="/Items/new" >Add Item</a>
+                    <a class="submit-h" id="asd2" href="/Services/new">Add Service</a>
+                </div>
+            </div>
+        </div>
+    
+     
+     <div>
+      
+
+       
+            <%  if(currentUser==null||!currentUser.isAdmin){ %> 
+         <div class="col-md-12">
+             <h3><%= noMatch %></h3>
+            
+             <p>
+                <img src="/cash.png" alt=""> 
+                <a href="/Items/priceU"> <img src="/uparrow.png" alt="increasing"></a>|<a href="/Items/priceD"><img src="/downarrow.png" alt=""></a>/
+               
+                <img src="/calendar.png" alt=""> 
+                <a href="/Items/dateU"> <img src="/uparrow.png" alt="increasing"></a>|<a href="/Items/dateD"><img src="/downarrow.png" alt=""></a>
+               
+            </p>
+         <%  }%>
+         
+
+
+<script>
+    function degreesToRadians(degrees) {
+    return degrees * Math.PI / 180;
+    }
+  
+  function distanceInKmBetweenEarthCoordinates(lat1, lon1, lat2, lon2) {
+    var earthRadiusKm = 6371;
+  
+    var dLat = degreesToRadians(lat2-lat1);
+    var dLon = degreesToRadians(lon2-lon1);
+  
+    lat1 = degreesToRadians(lat1);
+    lat2 = degreesToRadians(lat2);
+  
+    var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+            Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2); 
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+    return earthRadiusKm * c;
+  }
+
+</script>
+<div class="col-lg-12 col-md-12 mb-12">
+    <% if(Items.length!=0){ %>
+        <h2 style="color:black">Items</h2>
+        <% } %>
+        <% Items.forEach(function(Item){ %>
+            <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100">
+                      <a href="/Items/<%= Item._id %>"><img class="card-img-top" src="/<%= Item.images.image1 %>" alt=""></a>
+                      <div class="card-body">
+                        <h4 class="card-title">
+                               
+                                <% function degreesToRadians(degrees) {
+                                    return degrees * Math.PI / 180;
+                                    }
+                                  
+                                  function distanceInKmBetweenEarthCoordinates(lat1, lon1, lat2, lon2) {
+                                    var earthRadiusKm = 6371;
+                                  
+                                    var dLat = degreesToRadians(lat2-lat1);
+                                    var dLon = degreesToRadians(lon2-lon1);
+                                  
+                                    lat1 = degreesToRadians(lat1);
+                                    lat2 = degreesToRadians(lat2);
+                                  
+                                    var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                                            Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2); 
+                                    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+                                    return earthRadiusKm * c;
+                                  }
+                                  %>
+                                  
+                                
+                          <h1><a href="/Items/<%= Item._id %>"><%= Item.name %> </a></h1>
+                          
+                          <strong>Price: </strong>$<%=Item.price %><br>
+                          <% if(currentUser){ %>
+                            <strong>Distance: </strong><%= distanceInKmBetweenEarthCoordinates(Item.position.latitude,Item.position.longitude,currentUser.position.latitude,currentUser.position.longitude).toFixed(2)+" KM" %> 
+                            <% } %>   
+                            <br>
+                            <span id="dte"><%= Item.dateAdded %></span>
+                        
+                      </div>
+                    </div>
+                  </div>
+
+
+
+                <% }); %>
+            </div>
+            <div class="col-lg-12 col-md-12 mb-12">
+                    <% if(Services.length!=0){ %>
+                    <h2 style="color:black">Services</h2>
+                    <% } %>
+                   <% Services.forEach(function(Service){ %>
+                
+                    <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100">
+                              <a href="/Services/<%= Service._id %>"><img class="card-img-top" src="/<%= Service.images.image1 %>" alt=""></a>
+                              <div class="card-body">
+                                <h4 class="card-title">
+                                        <% function degreesToRadians(degrees) {
+                                            return degrees * Math.PI / 180;
+                                            }
+                                          
+                                          function distanceInKmBetweenEarthCoordinates(lat1, lon1, lat2, lon2) {
+                                            var earthRadiusKm = 6371;
+                                          
+                                            var dLat = degreesToRadians(lat2-lat1);
+                                            var dLon = degreesToRadians(lon2-lon1);
+                                          
+                                            lat1 = degreesToRadians(lat1);
+                                            lat2 = degreesToRadians(lat2);
+                                          
+                                            var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                                                    Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2); 
+                                            var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+                                            return earthRadiusKm * c;
+                                          }
+                                          %>
+                          <h1><a href="/Services/<%= Service._id %>"><%= Service.name %> </a></h1>
+                          
+                          <strong>Price: </strong>$<%=Service.price %><br>
+                          <% if(currentUser){ %>
+                            <strong>Distance: </strong><%= distanceInKmBetweenEarthCoordinates(Service.position.latitude,Service.position.longitude,currentUser.position.latitude,currentUser.position.longitude).toFixed(2)+" KM" %> 
+                            <% } %>   
+                            <br>
+                            <span id="dte"><%= Service.dateAdded %></span>
+                            </div>
+                          </div>
+                
+                
+                    <!-- <div class="col-md-3 col-sm-6">
+                        <div class="thumbnail">
+                            
+                            <img src="<%= Service.images.image1 %>">
+                            Service<br>
+                            <div class="caption">
+                                <h4><%= Service.name %></h4>
+                            </div>
+                            <p>
+                                <a href="/Services/<%= Service._id %>" class="btn btn-primary">More Info</a>
+                            </p>
+                        </div>
+                    </div> -->
+        <% }); %>
+    </div>
+    </div>
+</div>
+</div>
+<%  }%>
+<% include ../partials/footer %>

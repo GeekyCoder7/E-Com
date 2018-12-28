@@ -1,0 +1,62 @@
+
+<%  if(currentUser!=null&&currentUser.isAdmin){ %>
+
+<% include ./partials/header %> 
+<h1 id="adminer">Admin Panel</h1>
+
+     
+     <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        
+        <% Items.forEach(function(Item){ %>
+            <% if(!Item.isDisapproved) { %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                   <img src="<%= Item.images.image1 %>">
+                   Item <br>
+                   <div class="caption">
+                       <h4><%= Item.name %></h4>
+                   </div>
+                   <p>
+                       <a href="/Items/<%= Item._id %>" class="btn btn-primary">More info</a>
+                       <% if(!Item.isApproved&&!Item.isDisapproved) { %>
+                       <a href="/Items/<%= Item._id %>/approved" class="btn btn-primary">Approve</a>
+                       <a href="/Items/<%= Item._id %>/disapproved" class="btn btn-danger">Disapprove</a>
+                        <% } %>
+
+                   </p>
+                </div>
+            </div>
+            <% } %>
+        <% }); %>
+           
+        <% Services.forEach(function(Service){ %>
+            <% if(!Service.isDisapproved) { %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                   <img src="<%= Service.images.image1 %>">
+                   Service <br>
+                   <div class="caption">
+                       <h4><%= Service.name %></h4>
+                   </div>
+                   <p>
+                       <a href="/Services/<%= Service._id %>" class="btn btn-primary">More info</a>
+                       <% if(!Service.isApproved&&!Service.isDisapproved) { %>
+                       <a href="/Services/<%= Service._id %>/approved" class="btn btn-primary">Approve</a>
+                       <a href="/Services/<%= Service._id %>/disapproved" class="btn btn-danger">Disapprove</a>
+                        <% } %>
+
+                   </p>
+                </div>
+            </div>
+            <% } %>
+        <% }); %>
+    </div>
+</div>
+
+<% include ./partials/footer %>
+
+
+<% } else {%>
+    <h1>No admin rights</h1>
+    <a href="/Items">Go back</a>
+    <% } %>

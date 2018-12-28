@@ -1,0 +1,121 @@
+<% include ../partials/header %>
+
+<%  if(!currentUser.isAdmin){ %>
+
+<div class="body">
+    <div class="container">
+        <div class="signup">       
+            <form method="POST" enctype="multipart/form-data" action="/Items" >
+                <h2>Add new item</h2>
+                
+                <div class="form">
+                    <input type="text" class="input" name="name"  placeholder="name" required/>
+                </div>
+
+                
+                <div class="form">
+                    
+                    <select class="input" name="category" required>
+                        <optgroup label="Electronics">
+                            <option value="Phone">Phone</option>
+                            <option value="Parts">Electronic Parts</option>
+                        </optgroup>
+                        <optgroup label="Home Appliances">
+                            <option value="Table">Table</option>
+                            <option value="Chair">Chair</option>
+                        </optgroup>
+                    </select>
+                </div>
+                
+
+                <div class="form">
+                    <input type="file" name="upl" class="submit" multiple required>
+                </div>
+                
+               
+
+                <div class="form">
+                        <input type="text"  class="input" name="description"  placeholder="Description" required/>
+               </div>
+               <div class="form">
+                        <input type="text"  class="input" name="price"  placeholder="Price in usd $" required/>
+               </div>
+
+               <div class="form">
+                    <input type="text"  class="input" name="deliveryCost"  placeholder="Delivery cost in usd $" required/>
+           </div>
+
+           <div class="form">
+                <input type="text"  class="input" name="address"  value="<%= currentUser.address %>"  required/>
+           </div>
+           <input type="checkbox"  name="nameVisibility" value="nameVisibility"><span id="gtr">Show name</span> <br>
+
+                <div class="form">
+                    <input type="submit" id="submit" class="submit" value="Submit"/>
+                </div>
+            </form>
+                
+            
+            
+            <a href="/Items">Go Back</a>
+        </div>
+    </div>
+</div> 
+
+
+    
+<!-- <div class="container">
+    <div class="row">
+        
+        <div style="width: 30%; margin: 25px auto;">
+            <form action=""   method="POST">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="name" placeholder="name" required>
+                </div>
+                <div class="form-group">
+                    <select name="category" required>
+                            <optgroup label="Electronics">
+                            <option value="Phone">Phone</option>
+                            <option value="Parts">Electronic Parts</option>
+                            </optgroup>
+                            <optgroup label="Home Appliances">
+                            <option value="Table">Table</option>
+                            <option value="Chair">Chair</option>
+                            </optgroup>
+                    </select>
+                </div>
+
+                <div class="form-group row" >
+                    <div class="col-lg-2" style="float: left;">
+                        <input type="file" name="upl" class="form-control-file" multiple required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input class="form-control" type="text" name="description" placeholder="description" required>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="price" placeholder="price in usd $" required>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="deliveryCost" placeholder="Delivery cost in usd $" required>
+                </div>
+                <div class="form-group">
+                        <input class="form-control" type="text" name="address" value="<%= currentUser.address %>" required>
+                    </div>
+                    <input type="checkbox" name="nameVisibility" value="nameVisibility"> Show name<br>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+                </div>
+                
+                
+            </form>
+            <a href="/Items">Go Back</a>
+        </div>
+    </div> -->
+    <% }  else { %>
+        <a href="/adminpanel">Go to admin panel</a>
+    <%  } %>
+</div>
+<% include ../partials/footer %>
+

@@ -1,0 +1,181 @@
+<% include ./partials/header %>
+<%  if(currentUser!=null&&currentUser.isAdmin){ %>  
+    <a href="/adminpanel">Go to admin panel</a>
+    <%  } else{ %>
+   
+<div class="container" id="fer">
+        <% if(SoldItems.length==0&&Items.length==0&&SoldServices.length==0&&Services.length==0){ %>
+            <h1 style="color: black">No items to sell</h1>
+     <% } else {%>
+    <div class="row">
+
+                <% Items.forEach(function(Item){ %>
+                    
+                    <div class="item" id="qaq">
+                        <a class="title"><%=Item.name%></a> <br/>
+                            <div class="caption">
+                                    <strong class="font">Price: </strong><%= Item.price %> $ <br>
+                                   <strong>Delivery status: </strong> <%= Item.deliveryStatus %> <br>
+                                    <strong>Delivery cost: </strong><%= Item.deliveryCost %> $ <br>
+                                    <strong>Item bought by: </strong><%= Item.to %><br>
+                                      <br>
+                                <strong>Description </strong><br>
+                                <p><%= Item.description %></p>
+                                <p>
+                                    <em>Phone Number:  <%= Item.author.phonenumber %></em><br>
+                                    <em>Address:  <%= Item.author.address %></em><br>
+                                    <em>Category:  <%= Item.category %></em>
+                                </p>
+                            </div>
+                        </div>
+                       
+                        <hr>
+
+
+                <% }); %>
+            <% SoldItems.forEach(function(Item){ %>
+ 
+                <div class="item" id="qaq">
+                    <a class="title"><%=Item.name%></a> <br/>
+                        <div class="caption">
+                                <strong class="font">Price: </strong><%= Item.price %> $ <br>
+                               <strong>Delivery status: </strong> <%= Item.deliveryStatus %> <br>
+                                <strong>Delivery cost: </strong><%= Item.deliveryCost %> $ <br>
+                                <strong>Item bought by: </strong><%= Item.to %><br>
+                                  <br>
+                            <strong>Description </strong><br>
+                            <p><%= Item.description %></p>
+                            <p>
+                                <em>Phone Number:  <%= Item.author.phonenumber %></em><br>
+                                <em>Address:  <%= Item.author.address %></em><br>
+                                <em>Category:  <%= Item.category %></em>
+                            </p>
+                        </div>
+                    </div>
+        
+                    <hr>
+
+ 
+ 
+ 
+ 
+ 
+                <!-- <div class="caption-full">
+                    <h4 class="pull-right"><%= Item.price %>$ <br>
+                        Delivery status: <%= Item.deliveryStatus %> <br>
+                        Delivery date:  <%= Item.deliveryDate %> <br>
+                        Delivery cost: <%= Item.deliveryCost %>$ <br>
+                </h4>
+                    <h4><a><%=Item.name%></a></h4>
+                    
+                    <p><%= Item.description %></p>
+                    <p>
+                        <em>Purchased By <%= Item.to %></em><br><br>
+                        Item info <br>
+                        <em>Phone Number:  <%= Item.author.phonenumber %></em><br>
+                        <em>Address:  <%= Item.author.address %></em><br>
+                        <em>Category:  <%= Item.category %></em>
+                    </p>
+                    
+                </div> -->
+            <% }); %>
+
+
+
+
+
+
+
+               
+            <% Services.forEach(function(Service){ %>
+ 
+ 
+ 
+                <div class="item" id="qaq">
+                    <a class="title"><%=Service.name%></a> <br/>
+                        <div class="caption">
+                                <strong class="font">Price: </strong><%= Service.price %> $ <br>
+                                  <br>
+                            <strong>Description </strong><br>
+                            <p><%= Service.description %></p>
+                            <p>
+                                <em>Phone Number:  <%= Service.author.phonenumber %></em><br>
+                                <em>Address:  <%= Service.author.address %></em><br>
+                                <em>Category:  <%= Service.category %></em>
+                            </p>
+                        </div>
+                    </div>
+                   
+                    <hr>
+
+ 
+ 
+ 
+                <!-- <div class="caption-full">
+                    <h4 class="pull-right"><%= Service.price %>$ <br>
+                </h4>
+                    <h4><a><%=Service.name%></a></h4>
+                    
+                    <p><%= Service.description %></p>
+                    <p>
+                        
+                        <em>Phone Number:  <%= Service.author.phonenumber %></em><br>
+                        <em>Address:  <%= Service.author.address %></em><br>
+                        <em>Category:  <%= Service.category %></em>
+                    </p>
+                    
+                </div> -->
+            <% }); %>
+        <% SoldServices.forEach(function(Service){ %>
+
+            <div class="item" id="qaq">
+                <a class="title"><%=Service.name%></a> <br/>
+                    <div class="caption">
+                            <strong class="font">Price: </strong><%= Service.price %> $ <br>
+                            <strong>Purchased by: </strong><%= Service.to %><br>  
+                            <br>
+                        <strong>Description </strong><br>
+                        <p><%= Service.description %></p>
+                        <p>
+                            <em>Phone Number:  <%= Service.author.phonenumber %></em><br>
+                            <em>Address:  <%= Service.author.address %></em><br>
+                            <em>Category:  <%= Service.category %></em>
+                        </p>
+                    </div>
+                </div>
+               
+                <hr>
+
+
+
+
+
+
+
+
+<!-- 
+            <div class="caption-full">
+                <h4 class="pull-right"><%= Service.price %>$ <br>
+            </h4>
+                <h4><a><%=Service.name%></a></h4>
+                
+                <p><%= Service.description %></p>
+                <p>
+                    <em>Purchased By <%= Service.to %></em><br><br>
+                    Service info <br>
+                    <em>Phone Number:  <%= Service.author.phonenumber %></em><br>
+                    <em>Address:  <%= Service.author.address %></em><br>
+                    <em>Category:  <%= Service.category %></em>
+                </p>
+                
+            </div> -->
+        <% }); %>
+
+           
+        </div>
+    </div>
+    <% } %>
+
+</div>
+<% } %>
+<% include ./partials/footer %>

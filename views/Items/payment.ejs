@@ -1,0 +1,52 @@
+<% include ../partials/header %>
+<%  if(currentUser!=null&&currentUser.isAdmin){ %>  
+    <a href="/adminpanel">Go to admin panel</a>
+    <%  } else{ %>
+   
+
+
+    
+<div class="body">
+    <div class="container">
+        <div class="signup">
+            <% if(Items[0].sessionExpired){ %>
+                <h2 style="text-align: center">Session Expired</h2>
+                <h2 style="text-align: center">Request the item again</h3><br>
+                    <a href="/Items/Items[0]">Go Back</a>
+                    <% } else { %>
+                        
+                        <form action="/Items/<%= Items[0]._id %>/payment" method="POST">
+                            <h2 >Payment</h2>
+                                    <h3 class="h3"> Card Number / Security Number</h3>
+                                    <div class="form">
+                                        <input class="input" type="text" name="image" maxlength="16" minlength="16" placeholder="XXXX-XXXX-XXXX-XXXX" value="<%= currentUser.creditcard.number %>" required>
+                                        <input class="input" type="text" name="image" maxlength="3" minlength="3" placeholder="XXX" value="<%= currentUser.creditcard.securityNumber %>"required>
+                                    </div>
+                        
+                                
+                                    <h3 class="h3"> Expiry Date</h3>
+                                <div class="form">
+                                    <input class="input" type="text" name="image" placeholder="MM" value="<%= currentUser.creditcard.expDateM %>" maxlength="2" minlength="2" required>
+                                    <input class="input" type="text" name="image" placeholder="YY" value="<%= currentUser.creditcard.expDateY %>" maxlength="2" minlength="2" required>
+                                </div>
+                                
+                                <h3 class="h3"> Cardholder name</h3>
+                                <div class="form">
+                                    <input class="input" type="text" name="image" placeholder="First name" value="<%= currentUser.creditcard.cardFName %>" required> 
+                                    <input class="input"  type="text" name="image" placeholder="Last name" value="<%= currentUser.creditcard.cardLName %>" required>       
+                                </div>
+                                
+                                <form action="/Items/<%= Items[0]._id %>/payment/?_method=DELETE" method="POST">
+                                    <input type="submit" class="submit" value="Pay!">
+                                </form>
+                            </form>
+                            <a href="/Items/<%= Items[0]._id %>">Go Back</a>
+                        </div>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+                <% include ../partials/footer %>
+                
+                

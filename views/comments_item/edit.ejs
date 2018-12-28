@@ -1,0 +1,25 @@
+<% include ../partials/header %>
+<%  if(currentUser!=null&&currentUser.isAdmin){ %>  
+    <a href="/adminpanel">Go to admin panel</a>
+    <%  } else{ %>
+   
+<div class="body">
+<div class="container">
+    <div class="signup">
+            <h2>Edit Comment</h2>
+            <form action="/Items/<%= Item_id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
+                <div class="form">
+                    <input class="input" type="text" name="comment[text]" value="<%= comment.text %>" required>
+                </div>
+                <div class="form">
+                    <button class="submit">Submit!</button>
+                </div>
+            </form>
+            
+            <a href="/Items/<%= Item_id %>">Go Back</a>
+        </div>
+    </div>
+</div>
+<% } %>
+<% include ../partials/footer %>
+

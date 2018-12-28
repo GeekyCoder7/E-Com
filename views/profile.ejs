@@ -1,0 +1,56 @@
+<% include ./partials/header %>
+<%  if(currentUser!=null&&currentUser.isAdmin){ %>  
+    <a href="/adminpanel">Go to admin panel</a>
+    <%  } else{ %>
+   
+<div class="body-p">
+    <div class="container">
+        <div class="signup-p">
+            <form  class="form" action="/profile/<%= currentUser._id %>?_method=PUT" method="POST">
+            <h2 style="text-align: center">Hi <%= currentUser.username %></h2>
+            <h3 style="text-align: center">Account information</h3>
+            <span>Phone number:</span>
+            <div class="form">
+                <input class="input" type="text" name="User[phonenumber]" value="<%= currentUser.phonenumber %>" required>
+            </div>
+            <span>Address:</span>
+            <div class="form">
+            <input class="input" type="text" name="User[address]" value="<%= currentUser.address %>" required>
+            </div>
+            <span>Cardholder First Name:</span>
+            <div class="form">
+                <input class="input" type="text" name="User[creditcard.cardFName]" value="<%= currentUser.creditcard.cardFName %>">
+            </div>
+            <span>Cardholder Last Name:</span>
+            <div class="form">
+                <input class="input" type="text" name="User[creditcard.cardLName]" value="<%= currentUser.creditcard.cardLName %>">
+            </div>
+            <span>Card number:</span>
+            <div class="form">
+                <input class="input" type="text" name="User[creditcard.number]"  value="<%= currentUser.creditcard.number %>">
+            </div>
+            
+            <span>Card security number:</span>
+            <div class="form">
+                <input class="input" type="text" name="User[creditcard.securityNumber]"  value="<%= currentUser.creditcard.securityNumber %>">
+                        </div>
+                        <span>Month:</span>
+                        <div class="form">
+                            <input class="input" type="text" name="User[creditcard.expDateM]"  value="<%= currentUser.creditcard.expDateM %>">
+                        </div>
+                        <span>Year:</span>
+                        <div class="form">
+                            <input class="input" type="text" name="User[creditcard.expDateY]"  value="<%= currentUser.creditcard.expDateY %>">
+                        </div>
+                        <div class="form">
+                                <input type="submit" id="submit" class="submit" value="Submit"/>
+                         </div>
+            </form>
+            <a href="/Items">Go Back</a>
+        </div>
+    </div>
+</div>
+</div>
+<% } %>
+<% include ./partials/footer %>
+

@@ -1,0 +1,46 @@
+<% include ../partials/header %>
+
+<%  if(currentUser!=null&&currentUser.isAdmin){ %>  
+    <a href="/adminpanel">Go to admin panel</a>
+    <%  } else{ %>
+   
+
+
+
+<div class="body">
+    <div class="container">
+        <div class="signup">
+
+
+            <form action="/Items/<%= Item._id %>?_method=PUT" method="POST">
+                <h2>Edit <%= Item.name %></h2>
+                        <div class="form">
+                            <input class="input" type="text" name="Item[name]" value="<%= Item.name %>"  required>
+                        </div>
+                        <div class="form">
+                            <input class="input" type="text" name="Item[category]" value="<%= Item.category %>" required>
+                        </div>
+                        
+                        <div class="form">
+                            <input class="input" type="text" name="Item[description]" value="<%= Item.description %>" required>
+                        </div>
+                        
+                        <div class="form">
+                            <input class="input" type="text" name="Item[price]" value="<%= Item.price %>" required>
+                        </div>
+                        
+                        <div class="form">
+                            <input class="input" type="text" name="Item[address]" value="<%= Item.author.address %>" required>
+                        </div>
+                        <div class="form">
+                                <input type="submit" id="submit" class="submit" value="Submit"/>
+                        </div>
+                    </form>
+                    <a href="/Items/<%= Item._id %>">Go Back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% } %>
+        <% include ../partials/footer %>
+

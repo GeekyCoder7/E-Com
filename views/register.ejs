@@ -1,0 +1,68 @@
+<% include ./partials/header %> 
+<% if(currentUser){%>
+    <a href="/Items">Go back</a>
+    <% } else {%>
+<div class="body">
+        <div class="container">
+            <div class="signup">
+                <form action="/register" method="post">
+                    <h2>Sign Up!</h2>
+                    <div class="form">
+                        <input type="text" class="input" onclick="getLocation()" name="username" placeholder="username*" required><br>
+                    </div>
+                    <div class="form">
+                        <input type="password" name="password" class="input" placeholder="password*" required><br>
+                    </div>
+                    <div class="form">
+                        <input type="text" name="phonenumber" placeholder="Phone number*" class="input" required><br>
+                    </div>
+                    <div class="form">
+                        <input type="text" class="input" name="address" placeholder="Address*" required><br>
+                    </div>
+                    <div class="form">
+                        <input type="text" class="input" name="cardnumber" placeholder="Card number: XXXX-XXXX-XXXX-XXXX" maxlength="16" minlength="16"><br>
+                    </div>
+                    <div class="form">
+                        <input type="text" class="input" name="securitynumber" placeholder="Security number: XXX" maxlength="3" minlength="3"><br>
+                    </div>
+                    <div class="form">
+                        <input type="text"  class="input" name="expiryM" placeholder="MM" maxlength="2" minlength="2"><br>
+                    </div>
+                    <div class="form">
+                        <input type="text" name="expiryY" class="input" placeholder="YY" maxlength="2" minlength="2"><br>
+                    </div>
+                    <div class="form">
+                        <input type="text" name="cardFName" class="input" placeholder="Card holder First name: "><br>
+                    </div>
+                    <div class="form">
+                        <input type="hidden" name="latitude" id="latitude" value="">
+                        <input type="hidden" name="longitude" id="longitude" value="">
+                    </div>
+                <script>
+                var latitude = document.getElementById("latitude");
+                var longitude = document.getElementById("longitude");
+                function getLocation() {
+                  if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                  } else { 
+                    console.log("Geolocation is not supported by this browser.");
+                  }
+                }
+                
+                function showPosition(position) {
+                    latitude.value =  position.coords.latitude;
+                    longitude.value = position.coords.longitude;
+                }
+                </script>
+                    <div class="form">
+                        <input type="text" name="cardLName" class="input" placeholder="Card holder Last name"><br>
+                    </div>
+                     <div class="form">
+                        <input type="submit" class="submit" value="Sign up"/>
+                    </div>
+            </form>
+        </div>
+    </div>
+</div>
+<% } %>
+<% include ./partials/footer %> 

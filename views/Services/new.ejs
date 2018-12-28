@@ -1,0 +1,51 @@
+<% include ../partials/header %>
+
+
+
+<%  if(!currentUser.isAdmin){ %>
+        
+        <div class="body">
+            <div class="container">
+                <div class="signup">
+                    <form action="/Services" enctype="multipart/form-data" method="POST">
+                        <h2>Create a New Service</h2>
+                        <div class="form">
+                            <input class="input" type="text" name="name" placeholder="Name" required>
+                        </div>
+                        <div class="form">
+                            <input class="input" type="text" name="category" placeholder="Category" required>
+                        </div> 
+                        
+                        <div class="form">
+                            <input type="file" name="upl" class="submit" multiple required>
+                        </div>
+
+                        <div class="form">
+                            <input class="input" type="text" name="description" placeholder="description" required>
+                        </div>
+                        <div class="form">
+                            <input class="input" type="text" name="price" placeholder="price in usd $" required>
+                        </div>
+                            
+                        <div class="form">
+                           <input class="input" type="text" name="address" value="<%= currentUser.address %>" required>
+                        </div>
+                        <input type="checkbox" name="nameVisibility" value="nameVisibility"> <span class="lik">Show name</span><br>
+        
+                        <div class="form">
+                            <button class="submit">Submit!</button>
+                        </div>
+                            
+                            
+                        </form>
+                        <a href="/Items">Go Back</a>
+                    </div>
+                </div>
+                <% }  else { %>
+                    <a href="/adminpanel">Go to admin panel</a>
+                    <%  } %>
+                </div>
+                <% include ../partials/footer %>
+                
+    
+                

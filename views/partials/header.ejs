@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- comment
+        edit cc
+        payment cc
+        my orders 
+        add item service cc
+        discount oo
+        comment oo
+         -->
+        <title>JNJ</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>   
+        <link rel="stylesheet" href="/stylesheets/homepage.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/stylesheets/main.css">
+        <link rel="stylesheet" href="/stylesheets/login.css">
+        <link rel="stylesheet" href="/stylesheets/navbar.css">
+        <link rel="stylesheet" href="/stylesheets/item.css">
+        
+    </head>
+    <body>
+            <div class="topnav" id="myTopnav">
+                    <a href="/" >JNJ</a>
+                    <% if(!currentUser){ %><!---if not logged in -->
+                    <div class="right">
+                            <a id="asd"></a>
+                        <a class="right" href="/Items">Home</a>
+                        <!-- <a href="/auth/facebook">Login with Facebook</a> -->
+                        <a href="/login">Login</a>
+                        <a href="/register">Sign Up</a>
+                    </div>
+                    <% } else if(!currentUser.isAdmin){ %><!---if logged in and not admin-->
+                        <div class="right">
+                            <a id="asd"></a>
+                            <a href="#">Signed In As <%= currentUser.username %></a>
+                            <a href="/Items">Home</a>
+                            <a href="/myorders">My Orders</a>
+                            <a href="/myitems">My Items</a>
+                            <a href="/profile">Profile</a>
+                            <a href="/logout">Logout</a>
+                        </div>
+                    <% } else { %> <!---if logged in and admin-->
+                        <div class="right">
+                            <a href="/adminpanel">Admin Panel</a>
+                            <a href="/logout">Logout</a>
+                        </div>
+                     <% } %>
+                    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+                  </div>
+
+                  
