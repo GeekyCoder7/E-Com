@@ -22,7 +22,7 @@
     <!-- Vendor Styles including: Bootstrap, Font Icons, Plugins, etc.-->
     <link rel="stylesheet" media="screen" href="../css/vendor.min.css">
     <!-- Main Template Styles-->
-    <link id="mainStyles" rel="stylesheet" media="screen" href="../css/styles.min.css">
+    <link id="mainStyles" rel="stylesheet" media="screen" href="../css/styles.css">
     <!-- Customizer Styles-->
     <link rel="stylesheet" media="screen" href="../customizer/customizer.min.css">
     <!-- Google Tag Manager-->
@@ -615,16 +615,16 @@
             <li>Replace global colors in CSS</li>
           </ul>
           <h3 class="mb-3">Using predefined color skin</h3>
-          <p>Unishop comes with 4 predefined color schemes. They are found inside <code>Unishop/dist/css</code> folder. Each file ends with <strong>hex number of primary color</strong> except for default blue scheme which is <code>styles.min.css</code>.</p>
-          <p class="mb-4">To use chosen color scheme you need to replace link to <code>styles.min.css</code> in the <code>head</code> tag of the document. The easiest and fastest way to do that is using <strong>.pug templates</strong>. Head section is found in <code>Unishop/src/templates/partials/head.pug</code>. See <a href='using-preprocessors.html'>Using Preprocessors</a> section for <code>.pug</code> compilation instructions.</p>
+          <p>Unishop comes with 4 predefined color schemes. They are found inside <code>Unishop/dist/css</code> folder. Each file ends with <strong>hex number of primary color</strong> except for default blue scheme which is <code>styles.css</code>.</p>
+          <p class="mb-4">To use chosen color scheme you need to replace link to <code>styles.css</code> in the <code>head</code> tag of the document. The easiest and fastest way to do that is using <strong>.pug templates</strong>. Head section is found in <code>Unishop/src/templates/partials/head.pug</code>. See <a href='using-preprocessors.html'>Using Preprocessors</a> section for <code>.pug</code> compilation instructions.</p>
           <h3 class="mb-3">Customize global colors via Sass variables</h3>
           <p>In case you want to create your own color scheme - the fastest and painless way to do that is via Sass variables.</p>
-          <p>You need to edit <code>Unishop/src/scss/helpers/_variables.scss</code> file and re-compile new <code>styles.min.css</code> file either using <strong>Prepross</strong> or <strong>Grunt</strong>. Check <a href='using-preprocessors.html'>Using Preprocessors</a> and <a href='working-with-grunt.html'>Working with Grunt</a> sections for instructions.</p>
+          <p>You need to edit <code>Unishop/src/scss/helpers/_variables.scss</code> file and re-compile new <code>styles.css</code> file either using <strong>Prepross</strong> or <strong>Grunt</strong>. Check <a href='using-preprocessors.html'>Using Preprocessors</a> and <a href='working-with-grunt.html'>Working with Grunt</a> sections for instructions.</p>
           <p>
             <u>Blelow is the screenshot of the part of Sass variables file responsible for global colors:</u>
           </p><img class="d-block img-thumbnail rounded mb-4" src="../img/docs/sass_variables.jpg" alt="Sass Variables">
           <h3 class="mb-3">Replace global colors in CSS</h3>
-          <p>This is the hardest way to do things done. I don't recommend it but if you prefer vanilla CSS you can replace all color hex values inside <code>Unishop/dist/css/styles.min.css</code> with your own using "find and replace" panel of you code editor. Refer to the image above as a guidance.</p>
+          <p>This is the hardest way to do things done. I don't recommend it but if you prefer vanilla CSS you can replace all color hex values inside <code>Unishop/dist/css/styles.css</code> with your own using "find and replace" panel of you code editor. Refer to the image above as a guidance.</p>
         </div>
         <div class="col-lg-3 col-md-4">
           <!-- Docs Side Menu-->
@@ -739,7 +739,7 @@
           </div>
         </div>
         <!-- Copyright-->
-        <p class="footer-copyright">© All rights reserved. Made with &nbsp;<i class="icon-heart text-danger"></i><a href="http://rokaux.com/" target="_blank"> &nbsp;by rokaux</a></p>
+        <p class="footer-copyright">© All rights reserved. Made with &nbsp;<i class="icon-heart text-danger"></i><a href="https://geekycoder7.github.io/" target="_blank"> &nbsp;by NazApps</a></p>
       </div>
     </footer>
     <!-- Back To Top Button--><a class="scroll-to-top-btn" href="#"><i class="icon-chevron-up"></i></a>

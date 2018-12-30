@@ -9,6 +9,9 @@ var Itemschema = new mongoose.Schema({
       latitude: String,
       longitude: String
    },
+   isSale: Boolean,
+   brand: String,
+   newPrice : Number,
    dateAdded: String,
    isApproved: Boolean,
    isDisapproved: Boolean,

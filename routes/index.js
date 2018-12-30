@@ -1,12 +1,24 @@
 var express = require("express");
 var router  = express.Router();
 var passport = require("passport");
+var Item = require("../models/Item");
+var Service = require("../models/Service");
 var User = require("../models/user");
 var lowerCase =require("lower-case");
 //root route
-router.get("/", function(req, res){
-    res.redirect("/Items");
-});
+router.get("/",  function(req, res){// "/" localhost:1111/
+    var noMatch = null;
+    Item.find({}, function(err, allItems){
+        if(err){
+            console.log(err);
+        } else {
+            Service.find({}, function(err, allServices){
+                res.render("homepage",{Items:allItems, Services: allServices, noMatch: noMatch});
+             });
+           
+        }
+     });
+ });
 
 // show register form
 router.get("/register", function(req, res){

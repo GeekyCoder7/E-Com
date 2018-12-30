@@ -20,7 +20,6 @@ var commentItemRoutes    = require("./routes/comments_item"),
     MyOrdersRoutes = require("./routes/myorders"),
     MyItemsRoutes = require("./routes/myitems"),
     authRoutes = require("./routes/auth"),
-    HomePageRoutes = require("./routes/homepage"),
     ProfileRoutes = require("./routes/profile"),
     indexRoutes      = require("./routes/index");
     
@@ -60,7 +59,6 @@ app.use(function(req, res, next){
 
 app.use("/", indexRoutes);
 app.use("/Items", ItemRoutes);
-app.use("/homepage", HomePageRoutes);
 app.use("/Services", ServiceRoutes);
 app.use("/myorders", MyOrdersRoutes);
 app.use("/auth",authRoutes);
