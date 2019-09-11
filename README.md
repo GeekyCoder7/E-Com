@@ -1,5 +1,5 @@
 
-Code an online marketplace website similar to Amazon (https://amazon.com).
+Code an online marketplace website similar to OLX (https://olxliban.com/en/).
 
 Main points covered:
 
@@ -63,9 +63,9 @@ Main points to be covered:
 
 
 ============================================
-- When the payment is made, the product will automatically be unlisted and the owner will be notified. 
+- When the payment is made, the product will automatically be unlisted and the owner will be notified. [NO LONGER APPLICABLE]
 
-- The user will be notified for acceptance or rejection. 
+- The user will be notified for acceptance or rejection. [NO LONGER APPLICABLE]
 ============================================
 Optional features (bonus):
 
